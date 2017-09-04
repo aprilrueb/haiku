@@ -36,12 +36,22 @@ function formatData(data){
 }
 
 var syllabelsArr = formatData(cmudictFile);
-var structure = [[5],[7],[5]];
+//var structure = [[5],[7],[5]];
+//var structure = [[2,3],[1,3,3],[3,2]];
+//var structure = [[1,1,1,1,1],[1,1,1,1,1,1,1],[1,1,1,1,1]];
+var structure = [[2,3],[2,3,2],[5]];
 
 function createHaiku(structure, syllabelsArr){
-    console.log(syllabelsArr[structure[0][0]][Math.ceil(Math.random()*(syllabelsArr[structure[0][0]].length))] 
-    + "\n" + syllabelsArr[structure[1][0]][Math.ceil(Math.random()*(syllabelsArr[structure[1][0]].length))]
-    + "\n" + syllabelsArr[structure[2][0]][Math.ceil(Math.random()*(syllabelsArr[structure[2][0]].length))]);
+    var final = "";
+    for(var i=0; i<structure.length; i++){
+        final += "\n";
+        for(var j=0; j<structure[i].length; j++){
+            final += syllabelsArr[structure[i][j]][Math.ceil(Math.random()*(syllabelsArr[structure[i][j]].length))];
+            final += " ";
+        }
+    }
+    console.log(final.slice(0,-1));
+    return final.slice(0,-1);
 }
 
 createHaiku(structure, syllabelsArr);
