@@ -1,9 +1,16 @@
 var fs = require('fs');
-var cmudictFile = readCmudictFile('./cmudict.txt');
 
 function readCmudictFile(file){
   return fs.readFileSync(file).toString();
 }
+
+var cmudictFile = readCmudictFile('./cmudict.txt');
+
+function readAliceFile(file){
+    return fs.readFileSync(file).toString();
+  }
+
+var alice = readAliceFile('./aliceinwonderland.txt');
 
 function formatData(data){    
    var lines = data.toString().split("\n");
